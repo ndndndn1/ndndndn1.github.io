@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ndndndn1 Pages</title>
+  <meta name="description" content="ndndndn1 GitHub Pages project index">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">GitHub Pages</p>
+      <h1>ndndndn1 repository pages</h1>
+    </div>
+    <a class="github-link" href="https://github.com/ndndndn1" rel="noreferrer">GitHub</a>
+  </header>
+
+  <main class="layout">
+    <section class="summary" aria-label="summary">
+      <div>
+        <span class="metric-label">Sites</span>
+        <strong id="siteCount">0</strong>
+      </div>
+      <div>
+        <span class="metric-label">Catalog</span>
+        <strong id="catalogStatus">Loading</strong>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Published repositories</h2>
+        <input id="filterInput" type="search" placeholder="Filter repositories" autocomplete="off">
+      </div>
+      <div id="siteList" class="site-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="siteCardTemplate">
+    <article class="site-card">
+      <div class="site-main">
+        <div>
+          <h3></h3>
+          <p class="description"></p>
+        </div>
+        <span class="status"></span>
+      </div>
+      <div class="tags"></div>
+      <div class="site-actions">
+        <a class="open-link" rel="noreferrer">Open</a>
+        <a class="repo-link" rel="noreferrer">Repository</a>
+        <span class="updated"></span>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

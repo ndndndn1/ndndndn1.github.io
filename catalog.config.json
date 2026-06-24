@@ -1,0 +1,13 @@
+{
+  "owner": "ndndndn1",
+  "title": "ndndndn1 Pages",
+  "sites": [
+    {
+      "repo": "semiconductor-process-dashboard",
+      "name": "Semiconductor Process Dashboard",
+      "description": "반도체 stepCoverage 라인스플릿 공정 진척도 현황판",
+      "tags": ["semiconductor", "dashboard", "stepCoverage"],
+      "priority": 10
+    }
+  ]
+}

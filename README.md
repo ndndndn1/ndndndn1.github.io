@@ -9,4 +9,6 @@ The portal builds `sites.json` from `catalog.config.json` in GitHub Actions. If 
 
 To enrich private repository metadata, add a repository secret named `CATALOG_GITHUB_TOKEN` with read access to the listed repositories. The build script uses that token before falling back to `GITHUB_TOKEN`.
 
-Individual project repositories should not copy their HTML into this repository. They deploy their own project Pages site, then optionally send a `repository_dispatch` event with type `catalog-refresh` so this portal rebuilds `sites.json`.
+Individual project repositories should not copy their HTML into this repository. They deploy their own project Pages site and publish a public `site_manifest.json` in that Pages artifact. The portal reads those manifests at runtime to show the deployed SHA/time without exposing private repository links.
+
+Projects can also send a `repository_dispatch` event with type `catalog-refresh` so this portal rebuilds `sites.json`.

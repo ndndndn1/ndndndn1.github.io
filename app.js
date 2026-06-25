@@ -12,8 +12,11 @@ const fallbackCatalog = {
       description: "반도체 stepCoverage 라인스플릿 공정 진척도 현황판",
       tags: ["semiconductor", "dashboard", "stepCoverage"],
       site_url: "https://ndndndn1.github.io/semiconductor-process-dashboard/",
+      manifest_url: "https://ndndndn1.github.io/semiconductor-process-dashboard/site_manifest.json",
       repo_url: "https://github.com/ndndndn1/semiconductor-process-dashboard",
       updated_at: null,
+      deployed_at: null,
+      deployed_sha: null,
       private: true,
       status: "configured",
     },
@@ -42,7 +45,7 @@ function formatDate(value) {
 function matches(site) {
   const query = state.filter.trim().toLowerCase();
   if (!query) return true;
-  return [site.repo, site.name, site.description, ...(site.tags || [])]
+  return [site.repo, site.name, site.description, site.deployed_sha, ...(site.tags || [])]
     .filter(Boolean)
     .some((value) => String(value).toLowerCase().includes(query));
 }
@@ -86,9 +89,30 @@ function render() {
       repoLink.setAttribute("aria-label", `Open repository ${site.repo}`);
     }
 
-    node.querySelector(".updated").textContent = `Updated ${formatDate(site.updated_at)}`;
+    const updatedLabel = site.deployed_at ? "Deployed" : "Updated";
+    const updatedValue = site.deployed_at || site.updated_at;
+    const shaText = site.deployed_sha ? ` · ${site.deployed_sha.slice(0, 7)}` : "";
+    node.querySelector(".updated").textContent = `${updatedLabel} ${formatDate(updatedValue)}${shaText}`;
     siteList.appendChild(node);
   }
+}
+
+async function hydrateManifests() {
+  await Promise.all(
+    state.sites.map(async (site) => {
+      if (!site.manifest_url) return;
+      try {
+        const response = await fetch(`${site.manifest_url}?v=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const manifest = await response.json();
+        site.deployed_at = manifest.deployed_at || site.deployed_at;
+        site.deployed_sha = manifest.sha || site.deployed_sha;
+        site.status = "deployed";
+      } catch (error) {
+        console.warn(`manifest fetch failed for ${site.repo}`, error);
+      }
+    }),
+  );
 }
 
 async function loadCatalog() {
@@ -104,6 +128,7 @@ async function loadCatalog() {
     catalogStatus.textContent = "Fallback";
   }
 
+  await hydrateManifests();
   render();
 }
 

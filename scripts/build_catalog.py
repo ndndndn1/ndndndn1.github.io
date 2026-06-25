@@ -43,9 +43,12 @@ def main():
             "private": bool(item.get("private", False)),
             "priority": item.get("priority", 100),
             "site_url": f"https://{owner}.github.io/{repo}/",
+            "manifest_url": item.get("manifest_url") or f"https://{owner}.github.io/{repo}/site_manifest.json",
             "repo_url": f"https://github.com/{owner}/{repo}",
             "default_branch": "main",
             "updated_at": None,
+            "deployed_at": None,
+            "deployed_sha": None,
             "status": "configured",
         }
 

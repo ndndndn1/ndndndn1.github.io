@@ -40,6 +40,7 @@ def main():
             "name": item.get("name") or repo,
             "description": item.get("description") or "",
             "tags": item.get("tags", []),
+            "private": bool(item.get("private", False)),
             "priority": item.get("priority", 100),
             "site_url": f"https://{owner}.github.io/{repo}/",
             "repo_url": f"https://github.com/{owner}/{repo}",
@@ -56,6 +57,7 @@ def main():
                     "repo_url": remote.get("html_url") or fallback["repo_url"],
                     "default_branch": remote.get("default_branch") or fallback["default_branch"],
                     "updated_at": remote.get("pushed_at") or remote.get("updated_at"),
+                    "private": bool(remote.get("private", fallback["private"])),
                     "status": "ready",
                 }
             )

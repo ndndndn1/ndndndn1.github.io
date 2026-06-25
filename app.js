@@ -14,6 +14,7 @@ const fallbackCatalog = {
       site_url: "https://ndndndn1.github.io/semiconductor-process-dashboard/",
       repo_url: "https://github.com/ndndndn1/semiconductor-process-dashboard",
       updated_at: null,
+      private: true,
       status: "configured",
     },
   ],
@@ -78,8 +79,12 @@ function render() {
     openLink.setAttribute("aria-label", `Open ${site.name || site.repo}`);
 
     const repoLink = node.querySelector(".repo-link");
-    repoLink.href = site.repo_url;
-    repoLink.setAttribute("aria-label", `Open repository ${site.repo}`);
+    if (site.private) {
+      repoLink.remove();
+    } else {
+      repoLink.href = site.repo_url;
+      repoLink.setAttribute("aria-label", `Open repository ${site.repo}`);
+    }
 
     node.querySelector(".updated").textContent = `Updated ${formatDate(site.updated_at)}`;
     siteList.appendChild(node);

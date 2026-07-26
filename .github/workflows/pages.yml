@@ -8,8 +8,6 @@ on:
     types:
       - catalog-refresh
   workflow_dispatch:
-  schedule:
-    - cron: "17 19 * * *"
 
 permissions:
   contents: read

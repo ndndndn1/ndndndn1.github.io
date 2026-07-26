@@ -20,6 +20,20 @@ const fallbackCatalog = {
       private: true,
       status: "configured",
     },
+    {
+      repo: "semi-standard-terminology",
+      name: "SEMIVolumes Terminology Network",
+      description: "SEMIVolumes 문서 기반 용어·문맥 네트워크",
+      tags: ["semiconductor", "terminology", "network"],
+      site_url: "https://ndndndn1.github.io/semi-standard-terminology/",
+      manifest_url: "https://ndndndn1.github.io/semi-standard-terminology/site_manifest.json",
+      repo_url: "",
+      updated_at: null,
+      deployed_at: null,
+      deployed_sha: null,
+      private: true,
+      status: "configured",
+    },
   ],
 };
 

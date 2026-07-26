@@ -9,6 +9,16 @@
       "tags": ["semiconductor", "dashboard", "stepCoverage"],
       "private": true,
       "priority": 10
+    },
+    {
+      "repo": "semi-standard-terminology",
+      "name": "SEMIVolumes Terminology Network",
+      "description": "SEMIVolumes 문서 기반 용어·문맥 네트워크",
+      "tags": ["semiconductor", "terminology", "network"],
+      "private": true,
+      "priority": 20,
+      "site_url": "https://ndndndn1.github.io/semi-standard-terminology/",
+      "manifest_url": "https://ndndndn1.github.io/semi-standard-terminology/site_manifest.json"
     }
   ]
 }

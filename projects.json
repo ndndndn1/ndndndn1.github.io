@@ -1,0 +1,436 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-09",
+  "owner": "ndndndn1",
+  "active_project": {
+    "name": "process-data-trust-gate",
+    "repository_url": null,
+    "status": "prototype_ready_repository_pending",
+    "description": [
+      "공정 데이터의 단위·중복·시간 역전·lot 누수를 사전 검사합니다.",
+      "제조 DX/데이터 채용의 품질 검증·시스템 연동 요구에 맞춘 CLI·REST·MCP 모듈입니다."
+    ],
+    "sprint_start": "2026-10-10",
+    "sprint_end": "2026-10-16"
+  },
+  "projects": [
+    {
+      "name": "data-solution-event-stream-reliability",
+      "repository_url": "https://github.com/ndndndn1/data-solution-event-stream-reliability",
+      "private": false,
+      "status": "integration_candidate_unverified",
+      "description": [
+        "이벤트 스트림 신뢰성 분야의 기존 프로젝트.",
+        "새 제조 데이터 연동 모듈의 중복 구현 여부를 우선 확인합니다."
+      ]
+    },
+    {
+      "name": "mes-anomaly-operations",
+      "repository_url": "https://github.com/ndndndn1/mes-anomaly-operations",
+      "private": false,
+      "status": "integration_candidate_unverified",
+      "description": [
+        "MES 이상 운영 분야의 기존 프로젝트.",
+        "이벤트 재생·이상 분석 모듈 선정 전에 기능과 검증 상태를 재검토합니다."
+      ]
+    },
+    {
+      "name": "simulation-robot-learning-data",
+      "repository_url": "https://github.com/ndndndn1/simulation-robot-learning-data",
+      "private": false,
+      "status": "integration_candidate_unverified",
+      "description": [
+        "로봇 학습용 시뮬레이션 데이터 분야의 기존 프로젝트.",
+        "이번 주 선정에서는 반도체 데이터 업무보다 후순위인 연결 후보입니다."
+      ]
+    },
+    {
+      "name": "recipe-sustained-deviation-detector",
+      "repository_url": "https://github.com/ndndndn1/recipe-sustained-deviation-detector",
+      "private": false,
+      "status": "readme_reviewed",
+      "description": [
+        "레시피별 지속 편차를 검출하는 합성 데이터 실험.",
+        "공정 이상 판독과 재현 가능한 검증 구조의 재사용 후보입니다."
+      ]
+    },
+    {
+      "name": "semiconductor-process-index",
+      "repository_url": "https://github.com/ndndndn1/semiconductor-process-index",
+      "private": false,
+      "status": "readme_reviewed",
+      "description": [
+        "공정·실험·측정 자료를 선택·확인하는 공개 카탈로그.",
+        "원본은 별도로 관리하며 데이터 신뢰성 모듈의 연결 후보입니다."
+      ]
+    }
+  ],
+  "existing_repositories": [
+    {
+      "name": "Open-Sora",
+      "repository_url": "https://github.com/ndndndn1/Open-Sora",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "utils",
+      "repository_url": "https://github.com/ndndndn1/utils",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "skywater-pdk",
+      "repository_url": "https://github.com/ndndndn1/skywater-pdk",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "hwpapi",
+      "repository_url": "https://github.com/ndndndn1/hwpapi",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "oneBranchMultiLLM",
+      "repository_url": "https://github.com/ndndndn1/oneBranchMultiLLM",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "paperWriter",
+      "repository_url": "https://github.com/ndndndn1/paperWriter",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "claudeMD",
+      "repository_url": "https://github.com/ndndndn1/claudeMD",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "semiVoca",
+      "repository_url": "https://github.com/ndndndn1/semiVoca",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "deathCocktail",
+      "repository_url": "https://github.com/ndndndn1/deathCocktail",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "honeypot",
+      "repository_url": "https://github.com/ndndndn1/honeypot",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "cucu",
+      "repository_url": "https://github.com/ndndndn1/cucu",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "secuQuest",
+      "repository_url": "https://github.com/ndndndn1/secuQuest",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "overnightPredict",
+      "repository_url": "https://github.com/ndndndn1/overnightPredict",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "dotfiles",
+      "repository_url": "https://github.com/ndndndn1/dotfiles",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "cdsemViewer",
+      "repository_url": "https://github.com/ndndndn1/cdsemViewer",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "mdtensor",
+      "repository_url": "https://github.com/ndndndn1/mdtensor",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "rndnote",
+      "repository_url": "https://github.com/ndndndn1/rndnote",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "openclaw",
+      "repository_url": "https://github.com/ndndndn1/openclaw",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "nanoclaw",
+      "repository_url": "https://github.com/ndndndn1/nanoclaw",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "RuView",
+      "repository_url": "https://github.com/ndndndn1/RuView",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "DarkSword-RCE",
+      "repository_url": "https://github.com/ndndndn1/DarkSword-RCE",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "axplorer",
+      "repository_url": "https://github.com/ndndndn1/axplorer",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "openclaude",
+      "repository_url": "https://github.com/ndndndn1/openclaude",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "DefectGen",
+      "repository_url": "https://github.com/ndndndn1/DefectGen",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "Odd-Even-Driving",
+      "repository_url": "https://github.com/ndndndn1/Odd-Even-Driving",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "routine",
+      "repository_url": "https://github.com/ndndndn1/routine",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "routine-soc",
+      "repository_url": "https://github.com/ndndndn1/routine-soc",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "hermes-agent",
+      "repository_url": "https://github.com/ndndndn1/hermes-agent",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "routine_plasma",
+      "repository_url": "https://github.com/ndndndn1/routine_plasma",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "career_kia",
+      "repository_url": "https://github.com/ndndndn1/career_kia",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "ensembleAI",
+      "repository_url": "https://github.com/ndndndn1/ensembleAI",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "pandas-ta-classic",
+      "repository_url": "https://github.com/ndndndn1/pandas-ta-classic",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "measureSEMhrit",
+      "repository_url": "https://github.com/ndndndn1/measureSEMhrit",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "frame-codebase",
+      "repository_url": "https://github.com/ndndndn1/frame-codebase",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "optic",
+      "repository_url": "https://github.com/ndndndn1/optic",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "DAAAMreview",
+      "repository_url": "https://github.com/ndndndn1/DAAAMreview",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "ndndndn1.github.io",
+      "repository_url": "https://github.com/ndndndn1/ndndndn1.github.io",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "codex-semicon",
+      "repository_url": "https://github.com/ndndndn1/codex-semicon",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "data-solution-event-stream-reliability",
+      "repository_url": "https://github.com/ndndndn1/data-solution-event-stream-reliability",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "bms-edge-anomaly-runtime",
+      "repository_url": "https://github.com/ndndndn1/bms-edge-anomaly-runtime",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "application-robot-operations",
+      "repository_url": "https://github.com/ndndndn1/application-robot-operations",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "mes-anomaly-operations",
+      "repository_url": "https://github.com/ndndndn1/mes-anomaly-operations",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-service-core",
+      "repository_url": "https://github.com/ndndndn1/flow-service-core",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-data-core",
+      "repository_url": "https://github.com/ndndndn1/flow-data-core",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-model-core",
+      "repository_url": "https://github.com/ndndndn1/flow-model-core",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-data-processing",
+      "repository_url": "https://github.com/ndndndn1/flow-data-processing",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-decisioning",
+      "repository_url": "https://github.com/ndndndn1/flow-decisioning",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-semantic",
+      "repository_url": "https://github.com/ndndndn1/flow-semantic",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-observability",
+      "repository_url": "https://github.com/ndndndn1/flow-observability",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-vision",
+      "repository_url": "https://github.com/ndndndn1/flow-vision",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-industrial",
+      "repository_url": "https://github.com/ndndndn1/flow-industrial",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-runner",
+      "repository_url": "https://github.com/ndndndn1/flow-runner",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-robot-bridge",
+      "repository_url": "https://github.com/ndndndn1/flow-robot-bridge",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "physical-robot-interface",
+      "repository_url": "https://github.com/ndndndn1/physical-robot-interface",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "simulation-robot-learning-data",
+      "repository_url": "https://github.com/ndndndn1/simulation-robot-learning-data",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "embedded-robot-ros2",
+      "repository_url": "https://github.com/ndndndn1/embedded-robot-ros2",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "meeting-epistemic-gateway",
+      "repository_url": "https://github.com/ndndndn1/meeting-epistemic-gateway",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "recipe-sustained-deviation-detector",
+      "repository_url": "https://github.com/ndndndn1/recipe-sustained-deviation-detector",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "fleet-command-evidence",
+      "repository_url": "https://github.com/ndndndn1/fleet-command-evidence",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "semiconductor-process-index",
+      "repository_url": "https://github.com/ndndndn1/semiconductor-process-index",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "ARTEX",
+      "repository_url": "https://github.com/ndndndn1/ARTEX",
+      "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    }
+  ]
+}

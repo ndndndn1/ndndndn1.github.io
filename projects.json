@@ -67,6 +67,12 @@
   ],
   "existing_repositories": [
     {
+      "name": "preprocess",
+      "repository_url": "https://github.com/ndndndn1/preprocess",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "Open-Sora",
       "repository_url": "https://github.com/ndndndn1/Open-Sora",
       "private": false,
@@ -88,6 +94,18 @@
       "name": "hwpapi",
       "repository_url": "https://github.com/ndndndn1/hwpapi",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "measureSEM",
+      "repository_url": "https://github.com/ndndndn1/measureSEM",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "mes",
+      "repository_url": "https://github.com/ndndndn1/mes",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -115,6 +133,12 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "oneclickEmploy",
+      "repository_url": "https://github.com/ndndndn1/oneclickEmploy",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "deathCocktail",
       "repository_url": "https://github.com/ndndndn1/deathCocktail",
       "private": false,
@@ -124,6 +148,12 @@
       "name": "honeypot",
       "repository_url": "https://github.com/ndndndn1/honeypot",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "connection",
+      "repository_url": "https://github.com/ndndndn1/connection",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -139,9 +169,21 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "taskAuto",
+      "repository_url": "https://github.com/ndndndn1/taskAuto",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "overnightPredict",
       "repository_url": "https://github.com/ndndndn1/overnightPredict",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "Hybrid-Distributed-Acceleration",
+      "repository_url": "https://github.com/ndndndn1/Hybrid-Distributed-Acceleration",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -163,6 +205,12 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "viewerPCM",
+      "repository_url": "https://github.com/ndndndn1/viewerPCM",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "rndnote",
       "repository_url": "https://github.com/ndndndn1/rndnote",
       "private": false,
@@ -175,6 +223,12 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "diskDialogue",
+      "repository_url": "https://github.com/ndndndn1/diskDialogue",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "nanoclaw",
       "repository_url": "https://github.com/ndndndn1/nanoclaw",
       "private": false,
@@ -184,6 +238,18 @@
       "name": "RuView",
       "repository_url": "https://github.com/ndndndn1/RuView",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "etch",
+      "repository_url": "https://github.com/ndndndn1/etch",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "kspeedProprocess",
+      "repository_url": "https://github.com/ndndndn1/kspeedProprocess",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -205,6 +271,12 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "controlled_c",
+      "repository_url": "https://github.com/ndndndn1/controlled_c",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "DefectGen",
       "repository_url": "https://github.com/ndndndn1/DefectGen",
       "private": false,
@@ -223,15 +295,33 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "login",
+      "repository_url": "https://github.com/ndndndn1/login",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "routine-soc",
       "repository_url": "https://github.com/ndndndn1/routine-soc",
       "private": false,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "Agent-native-generative-AIstudio",
+      "repository_url": "https://github.com/ndndndn1/Agent-native-generative-AIstudio",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "hermes-agent",
       "repository_url": "https://github.com/ndndndn1/hermes-agent",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "emulator",
+      "repository_url": "https://github.com/ndndndn1/emulator",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -247,6 +337,18 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "self-evolution",
+      "repository_url": "https://github.com/ndndndn1/self-evolution",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "agent",
+      "repository_url": "https://github.com/ndndndn1/agent",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "ensembleAI",
       "repository_url": "https://github.com/ndndndn1/ensembleAI",
       "private": false,
@@ -256,6 +358,12 @@
       "name": "pandas-ta-classic",
       "repository_url": "https://github.com/ndndndn1/pandas-ta-classic",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "bandi",
+      "repository_url": "https://github.com/ndndndn1/bandi",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -271,9 +379,33 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "semiconductor-process-dashboard",
+      "repository_url": "https://github.com/ndndndn1/semiconductor-process-dashboard",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "parallel-llm-router",
+      "repository_url": "https://github.com/ndndndn1/parallel-llm-router",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "fail",
+      "repository_url": "https://github.com/ndndndn1/fail",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "optic",
       "repository_url": "https://github.com/ndndndn1/optic",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "doorOpen",
+      "repository_url": "https://github.com/ndndndn1/doorOpen",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -295,9 +427,33 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "semi-standard-terminology",
+      "repository_url": "https://github.com/ndndndn1/semi-standard-terminology",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "pdf-element-eraser",
+      "repository_url": "https://github.com/ndndndn1/pdf-element-eraser",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "career26",
+      "repository_url": "https://github.com/ndndndn1/career26",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "data-solution-event-stream-reliability",
       "repository_url": "https://github.com/ndndndn1/data-solution-event-stream-reliability",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "career262",
+      "repository_url": "https://github.com/ndndndn1/career262",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -316,6 +472,18 @@
       "name": "mes-anomaly-operations",
       "repository_url": "https://github.com/ndndndn1/mes-anomaly-operations",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "sem-etch-profile-metrology",
+      "repository_url": "https://github.com/ndndndn1/sem-etch-profile-metrology",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "qqantum",
+      "repository_url": "https://github.com/ndndndn1/qqantum",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -373,9 +541,51 @@
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
+      "name": "flow-lineage",
+      "repository_url": "https://github.com/ndndndn1/flow-lineage",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "job-plugin",
+      "repository_url": "https://github.com/ndndndn1/job-plugin",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
       "name": "flow-runner",
       "repository_url": "https://github.com/ndndndn1/flow-runner",
       "private": false,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "flow-stack",
+      "repository_url": "https://github.com/ndndndn1/flow-stack",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "plugin-openai-micro-measurement",
+      "repository_url": "https://github.com/ndndndn1/plugin-openai-micro-measurement",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "plugin-openai-scientist",
+      "repository_url": "https://github.com/ndndndn1/plugin-openai-scientist",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "study-semi-cmos-device-fabrication",
+      "repository_url": "https://github.com/ndndndn1/study-semi-cmos-device-fabrication",
+      "private": true,
+      "status": "inventory_only_purpose_not_reviewed"
+    },
+    {
+      "name": "kaist-licensed-paper-access",
+      "repository_url": "https://github.com/ndndndn1/kaist-licensed-paper-access",
+      "private": true,
       "status": "inventory_only_purpose_not_reviewed"
     },
     {
@@ -432,5 +642,6 @@
       "private": false,
       "status": "inventory_only_purpose_not_reviewed"
     }
-  ]
+  ],
+  "metadata_disclosure": "Owner explicitly authorized private repository names and URLs in this public index on 2026-10-09; source code and private data remain private."
 }

@@ -7,7 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-이번 주 확정: process-data-trust-gate (2026-10-10~10-16, 14시간). 상태: **blocked** — 7일차 제안서 초안 작성; 독립 검증·실측 성과·private 코드 전달 미완료.
+전주 결과: process-data-trust-gate (2026-10-10~10-16)는 **blocked** — 독립 정답·실측 시간·private 전달 미완료.
+이번 주 확정: process-holdout-evaluator (2026-10-17~10-23, 14시간). 공학 단계 prototype, 전체 상태 **blocked** — 새 private 저장소 생성·push 미완료.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.
@@ -94,3 +95,21 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 
 목적: 공정 데이터 오류·분할 누수를 분석 전에 결정형으로 차단합니다.
 문맥: 제조 데이터·AI 연동 직무용 7일 검증 프로젝트이며 상태는 **blocked** — 제안서 초안 작성, 독립 평가·실측 비교·private 코드 전달 미완료입니다.
+
+
+## 2026-10-17 선정 기록
+
+목적: 공정 예측의 시간순 분할·누수·불균형 지표 평가를 CLI·REST·MCP에서 재사용합니다.
+문맥: 전주 현장 pilot은 외부 증거 부재로 보존하고, 공개 SECOM 역사 데이터로 검증 가능한 후속 모듈을 선정합니다.
+
+- 전주 53개 회귀 테스트를 재실행해 통과했습니다. 합성 104건 일치는 10/16 기록이며, 독립 라벨·실측 0쌍 상태는 변하지 않았습니다. 전주를 완료로 변경하지 않습니다.
+- 기존 flow-model-core의 실제 runtime(가중합/boolean assurance)과 MES·recipe detector·공정 index를 검토했습니다. 일반 ETL·replay·detector는 추가 구현하지 않습니다.
+- 선정 판단값: 영향4 × 로컬 benchmark 완성가능성.80 × 정보가치5 ÷14h = 1.143. 전주 현장 pilot은 외부 증거 미확보로 .10을 적용해 .143입니다. 취업 확률·시장 통계가 아니며 private 전달은 별도 blocked gate입니다.
+- 첫날 prototype: 결정형 시간분할/ID·group·정확 feature hash 누수 감사/이진 지표. 비결정형 대표성·인과 해석·제안 판단은 별도 사람 검토입니다.
+- 공개 UCI SECOM 1,567행을 날짜 기준 820/367/380행으로 분리했습니다. 동일 날짜·정확 feature hash의 분할 교차 없음. 원본은 590 numeric columns이며 웹 설명 591과 다릅니다. lot 정보 부재로 lot 독립성은 unverified입니다.
+- 20개 테스트, tied-score 100사례 sklearn 계산 oracle, 공개 1,567행 metadata에 대한 CLI·REST·legacy MCP complete-response parity 통과. 모델 학습·test 성능 계산·현장 효과 측정은 아직 없습니다. MCP 2025-11-25 minimal prototype, 최신 규격·외부 named client는 미검증입니다.
+- 7일 각2h: 10/17 분할·prototype →18 train-only Dummy/LR baseline →19 leakage sentinel →20 validation 설정 freeze →21 temporal test1회 →22 client/오류복구 →23 방법 제안서. 자동 개선 예약을 재개하거나 새로 만들지는 않았습니다.
+- 기준: 모든 행 보존, 분할 누수 차단, train-only preprocessing, metric oracle 오차≤1e-12, 인터페이스 일치, baseline 대비 AP/recall/FPR/분모 보고. 모델이 baseline보다 나빠도 결과를 보존하고 배포를 거절합니다. 공개 benchmark를 새 fab 검증이나 업무시간 단축으로 부르지 않습니다.
+- 새 산업 근거: [SEMI 10/13 전망](https://www.semi.org/en/semi-press-release/global-300mm-fab-equipment-spending-to-reach-227-billion-in-2029-as-buildout-accelerates-semi-projects)은 2026 300mm 장비지출 $149B(+31%)를 전망하며, 채용 증가 실측은 아닙니다. [LangChain 10/15 평가 지침](https://www.langchain.com/blog/common-questions-about-agent-evals)은 code evaluator·baseline·최종 상태 평가를 구체화합니다.
+- 새 채용 확인대상: [삼성SDI AX/PI 포함 공고](https://www.samsungcareers.com/hr/)가 공식 검색 결과에 10/14~10/23로 나타나나 상세 고용형태·경력·영어·마감시각은 확인 필요입니다. 정규직 추천으로 확정하지 않았습니다. SK AX R261987은 계약직이라 제외, SAP ERP R262067은 11/17 23:59 정규직이나 SAP 경력 적합성 미확인입니다. SK머티리얼즈7년 요건·마감 MES 제외 판단은 유지합니다. 영어 미기재를 요구 없음으로 처리하지 않습니다.
+- 전달: 연결 계정 ndndndn1 확인. 새 저장소 생성 tool 부재와 기존 승인 거부를 stop condition으로 유지했습니다. 새 private repo 생성·code push는 하지 않았으며 기존 public projects.json 전체 교체도 재시도하지 않았습니다. 이 문서가 최신 상태이고 projects.json은 stale입니다.

@@ -7,7 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: process-ontology-quality-gate (2026-10-24~10-30)는 **prototype** — private 전달·13개 작성자 테스트·live REST 검증 완료, 독립 mapping corpus·실제 업무시간 측정은 미완료.\n이번 주 확정: process-contract-change-gate (2026-10-31~11-06, 14시간), **prototype** — private 저장소·16개 테스트·CLI/live REST/MCP smoke 완료; 독립 change corpus·실측은 다음 검증 gate.
+전주 결과: process-ontology-quality-gate (2026-10-24~10-30)는 **prototype** — private 전달·13개 작성자 테스트·live REST 검증 완료, 독립 mapping corpus·실제 업무시간 측정은 미완료.
+이번 주 확정: process-contract-change-gate (2026-10-31~11-06, 14시간), **prototype** — private 저장소·16개 테스트·CLI/live REST/MCP smoke 완료; 독립 change corpus·실측은 다음 검증 gate.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.

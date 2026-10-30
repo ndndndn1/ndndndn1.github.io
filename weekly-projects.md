@@ -7,8 +7,7 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: process-data-trust-gate (2026-10-10~10-16)는 **blocked** — 독립 정답·실측 시간·private 전달 미완료.
-이번 주 확정: process-holdout-evaluator (2026-10-17~10-23, 14시간). 공학 단계 prototype, 전체 상태 **blocked** — 새 private 저장소 생성·push 미완료.
+전주 결과: process-ontology-quality-gate (2026-10-24~10-30)는 **prototype** — private 전달·13개 작성자 테스트·live REST 검증 완료, 독립 mapping corpus·실제 업무시간 측정은 미완료.\n이번 주 확정: process-contract-change-gate (2026-10-31~11-06, 14시간), **prototype** — private 저장소·16개 테스트·CLI/live REST/MCP smoke 완료; 독립 change corpus·실측은 다음 검증 gate.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.
@@ -113,3 +112,22 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 - 새 산업 근거: [SEMI 10/13 전망](https://www.semi.org/en/semi-press-release/global-300mm-fab-equipment-spending-to-reach-227-billion-in-2029-as-buildout-accelerates-semi-projects)은 2026 300mm 장비지출 $149B(+31%)를 전망하며, 채용 증가 실측은 아닙니다. [LangChain 10/15 평가 지침](https://www.langchain.com/blog/common-questions-about-agent-evals)은 code evaluator·baseline·최종 상태 평가를 구체화합니다.
 - 새 채용 확인대상: [삼성SDI AX/PI 포함 공고](https://www.samsungcareers.com/hr/)가 공식 검색 결과에 10/14~10/23로 나타나나 상세 고용형태·경력·영어·마감시각은 확인 필요입니다. 정규직 추천으로 확정하지 않았습니다. SK AX R261987은 계약직이라 제외, SAP ERP R262067은 11/17 23:59 정규직이나 SAP 경력 적합성 미확인입니다. SK머티리얼즈7년 요건·마감 MES 제외 판단은 유지합니다. 영어 미기재를 요구 없음으로 처리하지 않습니다.
 - 전달: 연결 계정 ndndndn1 확인. 새 저장소 생성 tool 부재와 기존 승인 거부를 stop condition으로 유지했습니다. 새 private repo 생성·code push는 하지 않았으며 기존 public projects.json 전체 교체도 재시도하지 않았습니다. 이 문서가 최신 상태이고 projects.json은 stale입니다.
+
+
+## 2026-10-31 선정 기록
+
+목적: 반도체/제조 데이터 계약의 두 버전을 비교해 파괴적 변경을 배포 전에 차단하고 영향 소비자를 특정합니다.
+문맥: 전주 단일-version ontology 구조 검증과 기존 flow-lineage 영향 조회 사이의 공백을 채우며, 추출·lineage 저장·일반 drift 검출은 재구현하지 않습니다.
+
+- 전주 결과 우선 확인: [process-ontology-quality-gate](https://github.com/ndndndn1/process-ontology-quality-gate)는 10/24 이후 추가 commit이 없고 project.json도 독립 mapping review·실제 timing 미완료를 명시합니다. 완료/validated로 승격하지 않습니다.
+- 자산 점검: flow-lineage는 immutable schema reference와 impact 조회, flow-semantic은 upstream 추출, 전주 gate는 단일 graph conformance를 담당합니다. 전체 계정 code search에서 ontology diff·breaking contract 판정 구현은 발견되지 않았습니다.
+- 선정 판단값(추정): 영향4 × 성공가능성.90 × 정보가치5 ÷14시간 = **1.286**. Text2SQL evaluator는 5×.55×5÷14=.982, MES incident evidence module은 4×.75×4÷14=.857입니다. 취업 확률이나 시장 통계가 아닙니다.
+- 첫날 prototype: entity/field/type/requiredness/relation/cardinality/unit/version 변경, declared consumer 영향, canonical hash와 sorted issue를 결정형으로 판정합니다. 계약 scope·undeclared consumer·semantic truth·deployment approval는 비결정형 사람 판단입니다.
+- 계약: CLI `process-contract-change --input FILE_OR_DASH`; REST `POST /v1/compare`, `GET /healthz`; MCP 2026-07-28 stateless stdio JSON-RPC `compare_process_contracts` 및 `server/discover`.
+- 검증: 작성자 fixture 16개 unit/contract 테스트, 실제 CLI, live REST health/compare, MCP discover를 통과했습니다. 예제 파괴 변경 4건을 mes-lot-ingest 영향으로 block했습니다. 독립 정확도 또는 업무시간 개선 증거는 아닙니다.
+- 7일 각2h: 10/31 prototype → 11/1 독립 30-change corpus → 11/2 alias/deprecation policy → 11/3 flow-lineage schema ref 연결·freeze → 11/4 one-time 20-case holdout → 11/5 named MCP client·오류복구 → 11/6 5쌍 시간측정·제안서.
+- 승격 기준: critical breaking recall 100%, reviewed compatible false block 0, 동일 입력 hash/order 재현, CLI/REST/MCP structured parity, fail-open 0, manual 대비 중앙 검토시간 30% 이상 단축 및 정확성 유지. 실패 결과도 보존하고 release를 거절합니다.
+- 채용 변화: [SK AX AI Data 엔지니어 R261937](https://www.skcareers.com/Recruit/Detail/R261937)는 정규직·11/20 23:59까지 지원 가능하며 ontology/knowledge graph/data quality 평가 기준과 직접 정렬됩니다. [제조 AI/DT R262159](https://www.skcareers.com/Recruit/Detail/R262159)는 정규직·11/24 23:59까지입니다. 두 공고 모두 외국어는 우대이지 필수가 아니나 TOEIC Speaking 점수 기준은 미기재라 **확인 필요**입니다.
+- 제외/종료: 삼성SDI AX/PI는 10/23, SK AI Application R261994는 10/26 종료. 10/21 신규 AX/AI PM/PL R262275와 Application 운영 R262274, 10/20 스마트팩토리 공고는 계약직이라 제외합니다.
+- 산업·커뮤니티 변화: SEMI 공식 newsroom은 10/26~28 Japan 50주년/TechLeadersARENA, Europa의 advanced packaging·fab management·AI-era 의제를 새로 게시했습니다. 이는 채용 증가 실측이 아니라 방향성 신호입니다. MCP 최신 안정판은 여전히 2026-07-28이고 이번 주 신규 규격은 없습니다.
+- 전달: private [process-contract-change-gate](https://github.com/ndndndn1/process-contract-change-gate) 생성·code push·visibility 재확인 완료. 외부인에게 메시지를 보내지 않았습니다.

@@ -1,29 +1,41 @@
 {
   "schema_version": "1.1",
-  "updated_at": "2026-10-31",
+  "updated_at": "2026-11-07",
   "owner": "ndndndn1",
   "disclosure": "Public index contains only reviewed public integration assets and private weekly-project metadata explicitly selected for indexing; unrelated private repository inventory is omitted.",
   "active_project": {
-    "name": "process-contract-change-gate",
-    "repository_url": "https://github.com/ndndndn1/process-contract-change-gate",
+    "name": "manufacturing-data-release-gate",
+    "repository_url": "https://github.com/ndndndn1/manufacturing-data-release-gate",
     "private": true,
     "status": "prototype",
     "description": [
-      "두 제조 데이터 계약 사이의 파괴적 변경과 영향 소비자를 판정합니다.",
-      "16개 작성자 테스트와 CLI·live REST·MCP smoke 통과; 독립 holdout·실측은 미완료입니다."
+      "제조 데이터 release의 artifact·contract·lineage·quality·SLO·rollback 증거를 GitOps 승격 전에 검증합니다.",
+      "21개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 corpus·실제 GitOps·실측은 미완료입니다."
     ],
-    "sprint_start": "2026-10-31",
-    "sprint_end": "2026-11-06"
+    "sprint_start": "2026-11-07",
+    "sprint_end": "2026-11-13"
   },
   "projects": [
+    {
+      "name": "manufacturing-data-release-gate",
+      "repository_url": "https://github.com/ndndndn1/manufacturing-data-release-gate",
+      "private": true,
+      "status": "prototype",
+      "description": [
+        "제조 데이터 release의 artifact·contract·lineage·quality·SLO·rollback 증거를 GitOps 승격 전에 검증합니다.",
+        "21개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 corpus·실제 GitOps·실측은 미완료입니다."
+      ],
+      "sprint_start": "2026-11-07",
+      "sprint_end": "2026-11-13"
+    },
     {
       "name": "process-contract-change-gate",
       "repository_url": "https://github.com/ndndndn1/process-contract-change-gate",
       "private": true,
-      "status": "prototype",
+      "status": "prototype_week_plan_incomplete",
       "description": [
         "두 제조 데이터 계약 사이의 파괴적 변경과 영향 소비자를 판정합니다.",
-        "16개 작성자 테스트와 CLI·live REST·MCP smoke 통과; 독립 holdout·실측은 미완료입니다."
+        "16개 작성자 테스트와 interfaces는 통과했으나 10/31 이후 commit과 2~7일차 독립 검증·실측·제안서는 없습니다."
       ],
       "sprint_start": "2026-10-31",
       "sprint_end": "2026-11-06"

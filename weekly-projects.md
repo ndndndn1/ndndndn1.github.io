@@ -7,8 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: process-ontology-quality-gate (2026-10-24~10-30)는 **prototype** — private 전달·13개 작성자 테스트·live REST 검증 완료, 독립 mapping corpus·실제 업무시간 측정은 미완료.
-이번 주 확정: process-contract-change-gate (2026-10-31~11-06, 14시간), **prototype** — private 저장소·16개 테스트·CLI/live REST/MCP smoke 완료; 독립 change corpus·실측은 다음 검증 gate.
+전주 결과: process-contract-change-gate (2026-10-31~11-06)는 **prototype** — private 전달·16개 작성자 테스트·CLI/live REST/MCP smoke 완료, 그러나 10/31 이후 commit이 없어 2~7일차 독립 corpus·holdout·실측·제안서는 미완료.
+이번 주 확정: manufacturing-data-release-gate (2026-11-07~11-13, 14시간), **prototype** — private 저장소·21개 테스트·CLI/live REST/MCP 검증 완료; 독립 corpus·실제 GitOps·실측은 다음 gate.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.
@@ -132,3 +132,23 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 - 제외/종료: 삼성SDI AX/PI는 10/23, SK AI Application R261994는 10/26 종료. 10/21 신규 AX/AI PM/PL R262275와 Application 운영 R262274, 10/20 스마트팩토리 공고는 계약직이라 제외합니다.
 - 산업·커뮤니티 변화: SEMI 공식 newsroom은 10/26~28 Japan 50주년/TechLeadersARENA, Europa의 advanced packaging·fab management·AI-era 의제를 새로 게시했습니다. 이는 채용 증가 실측이 아니라 방향성 신호입니다. MCP 최신 안정판은 여전히 2026-07-28이고 이번 주 신규 규격은 없습니다.
 - 전달: private [process-contract-change-gate](https://github.com/ndndndn1/process-contract-change-gate) 생성·code push·visibility 재확인 완료. 외부인에게 메시지를 보내지 않았습니다.
+
+
+## 2026-11-07 선정 기록
+
+목적: 제조 데이터 파이프라인의 artifact·contract·lineage·quality·SLO·rollback 증거를 GitOps 승격 전에 결정형으로 검증합니다.
+문맥: 반도체/제조 AI-ready 데이터 플랫폼 직무를 겨냥하되 기존 ETL·관측·lineage·replay·contract 모듈은 재구현하지 않고 그 출력 증거만 조합합니다.
+
+- 전주 검증 우선 확인: [process-contract-change-gate](https://github.com/ndndndn1/process-contract-change-gate)는 2026-10-31 KST 이후 추가 commit이 없고 project.json의 독립 corpus·named MCP client·실제 timing도 여전히 pending입니다. private 전달과 첫날 구현은 완료했지만 2~7일차와 제안서는 미완료이므로 **prototype**을 유지합니다.
+- 자산 점검: flow-data-processing은 ETL/quality 실행, flow-observability는 anomaly/KPI, flow-lineage는 OpenLineage 저장·영향 그래프, event-stream-reliability는 retry/DLQ/replay, 전주 모듈은 contract compatibility를 담당합니다. 이번 모듈은 이 결과들의 release evidence만 확인해 중복 구현을 피합니다.
+- 선정 점수(판단 추정): manufacturing data release gate 5×.90×5÷14h=**1.607**; AI-ready profiler 4×.85×4÷14=.971; Kubernetes capacity checker 4×.70×4÷14=.800. 취업확률이나 시장통계가 아닙니다.
+- 결정형 핵심: canonical JSON/hash, embedded evidence tamper, immutable image/SBOM, contract allow, connected lineage, quality count/status, freshness/error-rate, tested rollback, stable finding order, fail-closed allow/block.
+- 비결정형 판단: threshold owner, 증거가 실제 production을 대표하는지, risk exception, 배포 승인, 제안서 문맥. 기술적 `allow`는 배포 승인이 아닙니다.
+- 계약: CLI `manufacturing-release-gate --input FILE_OR_DASH`; REST `POST /v1/evaluate`, `GET /healthz`; MCP 2026-07-28 stateless stdio JSON-RPC `evaluate_manufacturing_data_release`. 세 인터페이스는 동일 decision/hash/finding envelope를 반환합니다.
+- 첫날 검증: 작성자 fixture 21개 unit/contract 테스트, 실제 CLI, live REST health/evaluate, MCP discovery·structured parity를 통과했습니다. 정상 fixture는 `allow`, 증거 6개, findings 0으로 일치했습니다. 독립 정확도·registry/cluster/CI truth·현장 효과 증거는 아닙니다.
+- 7일 각2h: 11/07 schema/core/interfaces → 11/08 구현 결과를 보기 전 독립 30 bundle 명세 → 11/09 file/OCI resolver·tamper corpus → 11/10 contract/OpenLineage/quality/SLO 연결·policy freeze → 11/11 20-case holdout 1회 → 11/12 GitOps dry-run·named MCP client·오류복구 → 11/13 5쌍 manual 대비·제안서.
+- 승격 기준: seeded critical recall 100%, reviewed compliant false block 0, byte mutation hash 변화 100%, producer/schema 누락·timeout·interface mismatch fail-open 0, CLI/REST/MCP parity, manual 대비 중앙 검토시간 30% 이상 단축과 정확성 유지. 실패 결과도 보존합니다.
+- 신규 최우선 채용: [SK AX R262415](https://www.skcareers.com/Recruit/Detail/R262415)은 11/4 게시·12/25 23:59 마감인 정규직 Manufacturing AI/Data Engineer·DevOps(k8s)입니다. 제조 대용량 pipeline, AI-ready platform, GitOps, governance/metadata/data quality와 직접 정렬되며 관련 경력 3년 이상입니다. 외국어는 우대이고 TOEIC Speaking 점수는 미기재라 **확인 필요**입니다.
+- 추가 유효 채용: [SK AX R262266](https://www.skcareers.com/Recruit/Detail/R262266)은 정규직 반도체 Cloud/AI Platform 개발·운영, 11/30 23:59 마감, 관련 경력 4년 이상입니다. 외국어는 우대이고 점수 기준은 **확인 필요**입니다. 삼성물산 건설 AI 서비스 개발/Data Engineer는 11/4~16 신규 노출됐으나 목록만으로 고용형태·영어요건을 확인하지 못해 상위 추천으로 확정하지 않았습니다.
+- 산업·커뮤니티 변화: [SEMI](https://www.semi.org/en/semi-press-release/global-silicon-wafer-shipments-increase-13.4-percent-year-over-year-in-q3-2026-semi-reports)는 11/4 Q3 2026 세계 silicon wafer shipment가 전년동기 대비 13.4% 증가했다고 발표했습니다. 채용 실측은 아닙니다. [OpenLineage 1.55.0](https://openlineage.io/docs/releases/1-55-0/)은 dbt Core v2 live OTel과 `unique_id` job naming 변경 등을 포함했고, [MCP .mcpb](https://blog.modelcontextprotocol.io/posts/2026-11-03-mcpb-bundles/)는 11/3 portable bundle 채택을 알렸습니다.
+- 전달: private [manufacturing-data-release-gate](https://github.com/ndndndn1/manufacturing-data-release-gate)에 12개 파일을 push하고 visibility=private·admin 권한·commit `64d8533`을 재확인했습니다. 외부인에게 메시지를 보내지 않았습니다.

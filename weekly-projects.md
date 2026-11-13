@@ -7,8 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: process-contract-change-gate (2026-10-31~11-06)는 **prototype** — private 전달·16개 작성자 테스트·CLI/live REST/MCP smoke 완료, 그러나 10/31 이후 commit이 없어 2~7일차 독립 corpus·holdout·실측·제안서는 미완료.
-이번 주 확정: manufacturing-data-release-gate (2026-11-07~11-13, 14시간), **prototype** — private 저장소·21개 테스트·CLI/live REST/MCP 검증 완료; 독립 corpus·실제 GitOps·실측은 다음 gate.
+전주 결과: manufacturing-data-release-gate (2026-11-07~11-13)는 **prototype** — private 전달·21개 작성자 테스트·CLI/live REST/MCP 완료, 그러나 11/07 이후 commit이 없어 독립 corpus·OCI/Kueue 연동·holdout·실측·제안서는 미완료.
+이번 주 확정: gpu-topology-admission-auditor (2026-11-14~11-20, 14시간), **prototype** — private 저장소·25개 테스트·CLI/live REST/MCP 검증 완료; 독립 scheduler corpus·live Kueue·실측은 다음 gate.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.
@@ -152,3 +152,24 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 - 추가 유효 채용: [SK AX R262266](https://www.skcareers.com/Recruit/Detail/R262266)은 정규직 반도체 Cloud/AI Platform 개발·운영, 11/30 23:59 마감, 관련 경력 4년 이상입니다. 외국어는 우대이고 점수 기준은 **확인 필요**입니다. 삼성물산 건설 AI 서비스 개발/Data Engineer는 11/4~16 신규 노출됐으나 목록만으로 고용형태·영어요건을 확인하지 못해 상위 추천으로 확정하지 않았습니다.
 - 산업·커뮤니티 변화: [SEMI](https://www.semi.org/en/semi-press-release/global-silicon-wafer-shipments-increase-13.4-percent-year-over-year-in-q3-2026-semi-reports)는 11/4 Q3 2026 세계 silicon wafer shipment가 전년동기 대비 13.4% 증가했다고 발표했습니다. 채용 실측은 아닙니다. [OpenLineage 1.55.0](https://openlineage.io/docs/releases/1-55-0/)은 dbt Core v2 live OTel과 `unique_id` job naming 변경 등을 포함했고, [MCP .mcpb](https://blog.modelcontextprotocol.io/posts/2026-11-03-mcpb-bundles/)는 11/3 portable bundle 채택을 알렸습니다.
 - 전달: private [manufacturing-data-release-gate](https://github.com/ndndndn1/manufacturing-data-release-gate)에 12개 파일을 push하고 visibility=private·admin 권한·commit `64d8533`을 재확인했습니다. 외부인에게 메시지를 보내지 않았습니다.
+
+
+## 2026-11-14 선정 기록
+
+목적: 분산 AI workload가 tenant quota·GPU model·interconnect·topology·gang·reserved headroom을 동시에 만족할 때만 결정형 dry-run admission을 허용합니다.
+문맥: 반도체/제조 AI Studio 운영 직무용 모듈이며 Kubernetes/Kueue·관측·지난주 release-evidence gate를 대체하지 않고 frozen snapshot의 사전 감사 증거만 만듭니다.
+
+- 전주 검증 우선 확인: [manufacturing-data-release-gate](https://github.com/ndndndn1/manufacturing-data-release-gate)는 11/07 첫날 commit 이후 추가 commit이 없습니다. project.json의 독립 corpus·live GitOps·named MCP client·실제 timing도 pending이므로 private 전달은 완료했지만 2~7일차와 제안서는 미완료, **prototype_week_plan_incomplete**로 유지합니다.
+- 자산 점검: flow-observability는 metric/anomaly/KPI, 지난주 gate는 artifact·contract·lineage·quality·SLO·rollback 증거를 담당합니다. 계정 code search에서 GPU quota·topology·gang·headroom admission 구현은 찾지 못해 새 모듈로 분리했습니다.
+- 선정 점수(판단 추정): GPU topology admission auditor 5×.90×5÷14h=**1.607**; MLOps error-budget change planner 5×.80×4÷14=1.143; engineering simulator result verifier 4×.75×5÷14=1.071. 취업확률·시장통계가 아닙니다.
+- 결정형 핵심: schema/topology label, tenant quota, homogeneous replica slot, GPU model·interconnect rank, full-gang domain capacity, post-placement free-GPU ratio, stable domain/assignment, canonical hash와 sorted fail-closed findings.
+- 비결정형 판단: snapshot의 최신성·권위, interconnect/headroom threshold owner, 실제 training throughput 대표성, risk exception·production admission·제안 문맥. 기술적 `allow`는 실제 admission 승인이 아닙니다.
+- 계약: CLI `gpu-topology-admission --input FILE_OR_DASH`; REST `POST /v1/admission-audit`, `GET /healthz`; MCP 2026-07-28 stateless stdio JSON-RPC `audit_gpu_topology_admission`. 동일 decision/hash/domain/assignment/headroom/finding envelope를 반환합니다.
+- 첫날 검증: 작성자 fixture 25개 unit/contract 테스트, 실제 CLI, live REST health/audit, MCP discovery·structured parity를 통과했습니다. 예제는 H100 8개를 `rack:z1/r1`에 배치해 잔여 12.5%, findings 0으로 `allow`했습니다. 독립 정확도·live scheduler·cluster truth·throughput 증거는 아닙니다.
+- 7일 각2h: 11/14 schema/core/interfaces → 11/15 구현 결과를 보기 전 독립 30 snapshot 명세 → 11/16 Kubernetes Node/ResourceQuota/Workload export adapter → 11/17 Kueue dry-run oracle·policy/corpus hash freeze → 11/18 20-case holdout 1회 → 11/19 named MCP client·오류복구·MIG/DRA unsupported fail-closed → 11/20 5쌍 manual 대비·제안서.
+- 승격 기준: quota/model/interconnect/topology/gang/headroom critical recall 100%, reviewed feasible false block 0, hash/domain/assignment/order 재현, CLI/REST/MCP parity, fixed holdout의 Kueue/scheduler dry-run 일치, manual 대비 중앙 검토시간 30% 이상 단축과 정확성 유지. 실패 결과도 보존합니다.
+- 신규 최우선 채용: [SK AX R262457](https://www.skcareers.com/Recruit/Detail/R262457)은 11/10 게시·12/31 23:59 마감인 정규직 제조 AI Studio 개발/운영 PL입니다. Kubernetes, MLOps, GPU utilization/cost, capacity, SLO/SLA, rollback·monitoring을 명시하며 관련 경력 5년 이상입니다. 공고에 영어 점수는 보이지 않지만 공통 지원서 기준은 **확인 필요**입니다.
+- 제조 데이터 차순위: [삼성전자 DX no.23440](https://www.samsungcareers.com/hr/?no=23440)은 11/11~23 정규직 생산기술연구소 Data 플랫폼 및 분석입니다. 제조 DataLake·AI-ready pipeline·ontology·governance·metadata·quality·lineage, 관련 경력 4년 이상을 요구합니다. 영어 기준은 **확인 필요**입니다.
+- 비반도체 후순위: [삼성화재 no.23492](https://www.samsungcareers.com/hr/?no=23492)는 11/13~23 정규직 AI Data Engineer·AI Platform Engineer로 4년 이상 경력을 요구합니다. 영어 기준은 **확인 필요**이며 제조/반도체 공고 뒤에 둡니다. 연구직·계약직과 Micron 영어 필수 신입 인터뷰는 제외했습니다.
+- 산업·커뮤니티 변화: [CNCF AI scheduling guidance](https://www.cncf.io/reports/solutions-and-practical-guidance-for-ai-workload-sheduling/)가 11/09 공개됐고, [gang/topology placement](https://www.cncf.io/blog/2026/11/12/gang-scheduling-and-topology-aware-placement-for-ai-training-in-kubernetes/) 글은 11/12 일반 pod-by-pod scheduler의 동시 배치·inter-GPU topology 공백을 구체화했습니다. [MCP release cycle](https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/)은 11/11 예측 가능한 freeze/release 절차를 발표했으나 message/version negotiation 변경은 없어 2026-07-28 계약을 유지합니다. [Synopsys Agentic AI](https://www.synopsys.com/blogs/chip-design/agentic-ai-should-fit-the-way-you-engineer.html)는 11/09 engineering workflow 정렬을 강조한 방향성 신호이며 채용 증거가 아닙니다.
+- 전달: private [gpu-topology-admission-auditor](https://github.com/ndndndn1/gpu-topology-admission-auditor)에 12개 파일을 push하고 visibility=private·admin 권한·commit `129967c`을 재확인했습니다. 외부인에게 메시지를 보내지 않았습니다.

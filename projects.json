@@ -1,56 +1,32 @@
 {
   "schema_version": "1.1",
-  "updated_at": "2026-11-07",
+  "updated_at": "2026-11-14",
   "owner": "ndndndn1",
-  "disclosure": "Public index contains only reviewed public integration assets and private weekly-project metadata explicitly selected for indexing; unrelated private repository inventory is omitted.",
+  "disclosure": "Public index contains reviewed public integration assets and only the currently selected private weekly project; prior private-project inventory is omitted.",
   "active_project": {
-    "name": "manufacturing-data-release-gate",
-    "repository_url": "https://github.com/ndndndn1/manufacturing-data-release-gate",
+    "name": "gpu-topology-admission-auditor",
+    "repository_url": "https://github.com/ndndndn1/gpu-topology-admission-auditor",
     "private": true,
     "status": "prototype",
     "description": [
-      "제조 데이터 release의 artifact·contract·lineage·quality·SLO·rollback 증거를 GitOps 승격 전에 검증합니다.",
-      "21개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 corpus·실제 GitOps·실측은 미완료입니다."
+      "분산 AI workload의 quota·GPU model·interconnect·topology·gang·headroom을 admission 전에 결정형으로 감사합니다.",
+      "25개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 scheduler corpus·live Kueue·실측은 미완료입니다."
     ],
-    "sprint_start": "2026-11-07",
-    "sprint_end": "2026-11-13"
+    "sprint_start": "2026-11-14",
+    "sprint_end": "2026-11-20"
   },
   "projects": [
     {
-      "name": "manufacturing-data-release-gate",
-      "repository_url": "https://github.com/ndndndn1/manufacturing-data-release-gate",
+      "name": "gpu-topology-admission-auditor",
+      "repository_url": "https://github.com/ndndndn1/gpu-topology-admission-auditor",
       "private": true,
       "status": "prototype",
       "description": [
-        "제조 데이터 release의 artifact·contract·lineage·quality·SLO·rollback 증거를 GitOps 승격 전에 검증합니다.",
-        "21개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 corpus·실제 GitOps·실측은 미완료입니다."
+        "분산 AI workload의 quota·GPU model·interconnect·topology·gang·headroom을 admission 전에 결정형으로 감사합니다.",
+        "25개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 scheduler corpus·live Kueue·실측은 미완료입니다."
       ],
-      "sprint_start": "2026-11-07",
-      "sprint_end": "2026-11-13"
-    },
-    {
-      "name": "process-contract-change-gate",
-      "repository_url": "https://github.com/ndndndn1/process-contract-change-gate",
-      "private": true,
-      "status": "prototype_week_plan_incomplete",
-      "description": [
-        "두 제조 데이터 계약 사이의 파괴적 변경과 영향 소비자를 판정합니다.",
-        "16개 작성자 테스트와 interfaces는 통과했으나 10/31 이후 commit과 2~7일차 독립 검증·실측·제안서는 없습니다."
-      ],
-      "sprint_start": "2026-10-31",
-      "sprint_end": "2026-11-06"
-    },
-    {
-      "name": "process-ontology-quality-gate",
-      "repository_url": "https://github.com/ndndndn1/process-ontology-quality-gate",
-      "private": true,
-      "status": "prototype_independent_validation_pending",
-      "description": [
-        "단일 공정 ontology graph의 구조·근거·단위를 검증합니다.",
-        "작성자 테스트와 live REST는 통과했으나 독립 corpus·실제 시간 측정은 미완료입니다."
-      ],
-      "sprint_start": "2026-10-24",
-      "sprint_end": "2026-10-30"
+      "sprint_start": "2026-11-14",
+      "sprint_end": "2026-11-20"
     },
     {
       "name": "data-solution-event-stream-reliability",

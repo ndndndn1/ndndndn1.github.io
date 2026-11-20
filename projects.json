@@ -1,32 +1,42 @@
 {
   "schema_version": "1.1",
-  "updated_at": "2026-11-14",
+  "updated_at": "2026-11-21",
   "owner": "ndndndn1",
   "disclosure": "Public index contains reviewed public integration assets and only the currently selected private weekly project; prior private-project inventory is omitted.",
   "active_project": {
-    "name": "gpu-topology-admission-auditor",
-    "repository_url": "https://github.com/ndndndn1/gpu-topology-admission-auditor",
+    "name": "agent-trace-regression-gate",
+    "repository_url": null,
     "private": true,
-    "status": "prototype",
+    "status": "blocked_repository_creation",
     "description": [
-      "분산 AI workload의 quota·GPU model·interconnect·topology·gang·headroom을 admission 전에 결정형으로 감사합니다.",
-      "25개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 scheduler corpus·live Kueue·실측은 미완료입니다."
+      "기록된 AI agent baseline/candidate trace의 provenance·schema·outcome·budget 회귀를 결정형으로 차단합니다.",
+      "30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
     ],
-    "sprint_start": "2026-11-14",
-    "sprint_end": "2026-11-20"
+    "sprint_start": "2026-11-21",
+    "sprint_end": "2026-11-27"
   },
   "projects": [
     {
-      "name": "gpu-topology-admission-auditor",
-      "repository_url": "https://github.com/ndndndn1/gpu-topology-admission-auditor",
+      "name": "agent-trace-regression-gate",
+      "repository_url": null,
       "private": true,
-      "status": "prototype",
+      "status": "blocked_repository_creation",
       "description": [
-        "분산 AI workload의 quota·GPU model·interconnect·topology·gang·headroom을 admission 전에 결정형으로 감사합니다.",
-        "25개 작성자 테스트와 CLI·live REST·MCP 검증 통과; 독립 scheduler corpus·live Kueue·실측은 미완료입니다."
+        "기록된 AI agent baseline/candidate trace의 provenance·schema·outcome·budget 회귀를 결정형으로 차단합니다.",
+        "30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
       ],
-      "sprint_start": "2026-11-14",
-      "sprint_end": "2026-11-20"
+      "sprint_start": "2026-11-21",
+      "sprint_end": "2026-11-27"
+    },
+    {
+      "name": "aitop10026",
+      "repository_url": "https://github.com/ndndndn1/aitop10026",
+      "private": false,
+      "status": "existing_domain_trace_auditor_reuse_boundary_reviewed",
+      "description": [
+        "기존 repository-specific recorded-trace 감사 구현.",
+        "평가 자료 분리 원칙만 재사용하고 generic paired regression gate와 도메인 규칙은 분리합니다."
+      ]
     },
     {
       "name": "data-solution-event-stream-reliability",

@@ -7,8 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: manufacturing-data-release-gate (2026-11-07~11-13)는 **prototype** — private 전달·21개 작성자 테스트·CLI/live REST/MCP 완료, 그러나 11/07 이후 commit이 없어 독립 corpus·OCI/Kueue 연동·holdout·실측·제안서는 미완료.
-이번 주 확정: gpu-topology-admission-auditor (2026-11-14~11-20, 14시간), **prototype** — private 저장소·25개 테스트·CLI/live REST/MCP 검증 완료; 독립 scheduler corpus·live Kueue·실측은 다음 gate.
+전주 결과: gpu-topology-admission-auditor (2026-11-14~11-20)는 **prototype_week_plan_incomplete** — private 전달·25개 작성자 테스트·CLI/live REST/MCP는 완료했으나 11/14 첫날 이후 원격 commit이 없고 독립 scheduler corpus·live Kueue·실측·제안서는 미완료.
+이번 주 확정: agent-trace-regression-gate (2026-11-21~11-27, 14시간), **prototype / delivery blocked** — 30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성은 GitHub 웹 미인증·연결 API 생성 기능 부재로 막힘.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.

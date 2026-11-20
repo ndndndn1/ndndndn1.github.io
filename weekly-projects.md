@@ -173,3 +173,23 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 - 비반도체 후순위: [삼성화재 no.23492](https://www.samsungcareers.com/hr/?no=23492)는 11/13~23 정규직 AI Data Engineer·AI Platform Engineer로 4년 이상 경력을 요구합니다. 영어 기준은 **확인 필요**이며 제조/반도체 공고 뒤에 둡니다. 연구직·계약직과 Micron 영어 필수 신입 인터뷰는 제외했습니다.
 - 산업·커뮤니티 변화: [CNCF AI scheduling guidance](https://www.cncf.io/reports/solutions-and-practical-guidance-for-ai-workload-sheduling/)가 11/09 공개됐고, [gang/topology placement](https://www.cncf.io/blog/2026/11/12/gang-scheduling-and-topology-aware-placement-for-ai-training-in-kubernetes/) 글은 11/12 일반 pod-by-pod scheduler의 동시 배치·inter-GPU topology 공백을 구체화했습니다. [MCP release cycle](https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/)은 11/11 예측 가능한 freeze/release 절차를 발표했으나 message/version negotiation 변경은 없어 2026-07-28 계약을 유지합니다. [Synopsys Agentic AI](https://www.synopsys.com/blogs/chip-design/agentic-ai-should-fit-the-way-you-engineer.html)는 11/09 engineering workflow 정렬을 강조한 방향성 신호이며 채용 증거가 아닙니다.
 - 전달: private [gpu-topology-admission-auditor](https://github.com/ndndndn1/gpu-topology-admission-auditor)에 12개 파일을 push하고 visibility=private·admin 권한·commit `129967c`을 재확인했습니다. 외부인에게 메시지를 보내지 않았습니다.
+
+
+## 2026-11-21 선정 기록
+
+목적: 기록된 AI agent baseline/candidate trace를 재실행 없이 비교해 tool provenance·argument schema·outcome·budget 회귀를 배포 전에 차단합니다.
+문맥: MES/AI/AX 운영 agent 평가 증거를 만들되 기존 agent 실행기·도메인 evaluator·observability 저장소는 재구현하지 않습니다.
+
+- 전주 검증 우선 확인: private gpu-topology-admission-auditor의 원격 commit은 11/14 첫날 `129967c` 이후 추가되지 않았고 project.json의 독립 scheduler corpus·live Kueue·named MCP client·timing도 pending입니다. 첫날 prototype은 보존하지만 2~7일 개선·검증과 제안서가 없어 **prototype_week_plan_incomplete**입니다.
+- 자산 점검: 계정 전체 code search에서 `aitop10026/reasoning_eval/audit_semantic.py`의 repo-specific 기록 trace 감사기를 확인했습니다. evaluator 자료를 agent 입력과 분리하는 경계는 재사용하되, 이번 모듈은 generic baseline/candidate pairing·tool call/result correlation·schema/budget regression과 인터페이스 parity만 담당합니다. trace 수집·agent 재실행·LLM judge·자연어 품질 판정은 구현하지 않습니다.
+- 선정 점수(판단 추정): agent trace regression gate 5×.90×5÷14h=**1.607**; simulator-result verifier 4×.75×5÷14=1.071; manufacturing MDM drift gate 4×.80×4÷14=.914. 취업확률·시장통계가 아닙니다. simulator는 live 연동 부재, MDM은 이번 신규 공고가 계약직이며 기존 contract/data-quality 자산과 겹쳐 후순위입니다.
+- 결정형 핵심: canonical JSON/hash, case 짝, event 순서·terminal final, tool_call/result ID와 result digest, declared argument type, expected outcome, call/latency/cost budget, baseline 대비 신규 finding, stable finding order와 fail-closed 판정.
+- 비결정형 판단: production sample 대표성, expected outcome/tool schema의 semantic truth, threshold와 risk exception, 배포 승인, 제안서 문맥. 기술적 `allow`는 배포 승인이 아닙니다.
+- 작성 문맥·목적: 반도체/MES 운영 agent의 관찰 trace를 실제 실행 없이 release evidence로 재사용해 조용한 semantic/tool 회귀를 드러내는 취업 제안용 모듈입니다. 도메인별 정답과 현장 대표성은 담당자 검토로 남깁니다.
+- 계약: CLI `agent-trace-regression --input FILE_OR_DASH`; REST `POST /v1/compare`, `GET /healthz`; MCP 2026-07-28 stateless stdio `compare_agent_traces` 및 `server/discover`. 세 인터페이스는 같은 decision/hash/case/finding envelope를 반환합니다.
+- 첫날 검증: 작성자 테스트 30개, 실제 CLI allow/1 pair/0 finding, live REST health·compare와 CLI structured parity, MCP discovery·structuredContent parity를 통과했습니다. 독립 정확도·live MLflow/OTel export·업무시간 효과 증거는 아닙니다.
+- 7일 각2h: 11/21 schema/core/interfaces → 11/22 결과를 보기 전 독립 30 paired trace 명세 → 11/23 MLflow/OTel JSONL adapter → 11/24 corpus/policy hash freeze → 11/25 20-case holdout 1회 → 11/26 named MCP client·malformed/timeout/retry → 11/27 5쌍 manual 대비·제안서.
+- 승격 기준: critical seeded regression recall 100%, reviewed normal false block 0, 누락 correlation/provenance·transport timeout fail-open 0, hash/order 재현, CLI/REST/MCP parity, manual 대비 중앙 검토시간 30% 이상 단축 및 정확성 유지. 실패 결과도 보존합니다.
+- 채용 변화: 11/14 이후 새로 확인된 [SK AX 제조 MDM·SAP MDG·Agentic AI R262445](https://www.skcareers.com/Recruit/Detail/R262445)는 반도체 제조 데이터 수요와 직접 정렬되지만 계약직이라 제외합니다. 글로벌 어학은 우대이며 TOEIC Speaking 수치는 미기재라 확인 필요입니다. Micron Korea 신규/경력 interview 공고는 영어를 요구하고 DX/data 우선순위가 아니어서 제외합니다. 전주부터 열려 있던 삼성전자 DX Data Platform & Analytics는 정규직이나 신규 변화가 아니며 영어 점수는 확인 필요입니다.
+- 산업·커뮤니티 변화: [MLflow 11/14 production trace 평가](https://mlflow.org/articles/evaluate-ai-agent-production-traces/)는 trace를 재실행 없이 scoring하고 실패를 test case로 전환하는 절차를 제시했고, [11/18 evaluation vs observability](https://mlflow.org/articles/ai-agent-evaluation-vs-observability/)는 기록과 판정을 분리했습니다. [SEMI 11/17 NextSEMI hackathon 결과](https://www.semi.org/en/news-media-press/newsroom)는 커뮤니티 신호일 뿐 채용·생산 효과 증거가 아닙니다. 이번 주 MCP/Kubernetes의 관련 신규 규격 변화는 확인하지 못했습니다.
+- 전달 상태: 로컬 commit `d01d6ef`, 12개 파일의 검증된 코드와 재현 문서를 준비했습니다. 그러나 GitHub /new는 로그인 화면이고 연결 API에는 repository create가 없어 새 private repository를 생성·push하지 못했습니다. 따라서 **delivery blocked**이며 생성 완료로 표시하지 않습니다. 외부인에게 메시지를 보내지 않았습니다.

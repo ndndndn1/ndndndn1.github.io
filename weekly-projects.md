@@ -7,8 +7,8 @@
 토요일 오전(한국시간): 출처·전주 결과 점검, 프로젝트 선정, 계획·프로토타입.
 일요일~목요일: 개선·검증. 금요일: 제안서·재현법·한계 작성.
 2시간/일은 초기 운영 가정이며 다음 선정 때 실제 사용시간으로 조정합니다.
-전주 결과: gpu-topology-admission-auditor (2026-11-14~11-20)는 **prototype_week_plan_incomplete** — private 전달·25개 작성자 테스트·CLI/live REST/MCP는 완료했으나 11/14 첫날 이후 원격 commit이 없고 독립 scheduler corpus·live Kueue·실측·제안서는 미완료.
-이번 주 확정: agent-trace-regression-gate (2026-11-21~11-27, 14시간), **prototype / delivery blocked** — 30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성은 GitHub 웹 미인증·연결 API 생성 기능 부재로 막힘.
+전주 결과: agent-trace-regression-gate (2026-11-21~11-27)는 **blocked_week_plan_incomplete** — 첫날 local 코드·30개 작성자 테스트·CLI/live REST/MCP는 완료했으나 원격 private 저장소가 없고 독립 corpus·adapter·holdout·실측·제안서는 미완료.
+이번 주 확정: mes-incident-evidence-packet (2026-11-28~12-04, 14시간), **prototype / delivery blocked** — 33개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성은 GitHub 웹 미인증·연결 API 생성 기능 부재로 막힘.
 
 ## 선정
 - 목표: 연말까지 안정적 일자리 확보를 돕는 구현·검증·현장 제안 증거.
@@ -193,3 +193,25 @@ project.json: 목적·문맥, 결정형/비결정형, 입력·출력/근거 sche
 - 채용 변화: 11/14 이후 새로 확인된 [SK AX 제조 MDM·SAP MDG·Agentic AI R262445](https://www.skcareers.com/Recruit/Detail/R262445)는 반도체 제조 데이터 수요와 직접 정렬되지만 계약직이라 제외합니다. 글로벌 어학은 우대이며 TOEIC Speaking 수치는 미기재라 확인 필요입니다. Micron Korea 신규/경력 interview 공고는 영어를 요구하고 DX/data 우선순위가 아니어서 제외합니다. 전주부터 열려 있던 삼성전자 DX Data Platform & Analytics는 정규직이나 신규 변화가 아니며 영어 점수는 확인 필요입니다.
 - 산업·커뮤니티 변화: [MLflow 11/14 production trace 평가](https://mlflow.org/articles/evaluate-ai-agent-production-traces/)는 trace를 재실행 없이 scoring하고 실패를 test case로 전환하는 절차를 제시했고, [11/18 evaluation vs observability](https://mlflow.org/articles/ai-agent-evaluation-vs-observability/)는 기록과 판정을 분리했습니다. [SEMI 11/17 NextSEMI hackathon 결과](https://www.semi.org/en/news-media-press/newsroom)는 커뮤니티 신호일 뿐 채용·생산 효과 증거가 아닙니다. 이번 주 MCP/Kubernetes의 관련 신규 규격 변화는 확인하지 못했습니다.
 - 전달 상태: 로컬 commit `d01d6ef`, 12개 파일의 검증된 코드와 재현 문서를 준비했습니다. 그러나 GitHub /new는 로그인 화면이고 연결 API에는 repository create가 없어 새 private repository를 생성·push하지 못했습니다. 따라서 **delivery blocked**이며 생성 완료로 표시하지 않습니다. 외부인에게 메시지를 보내지 않았습니다.
+
+
+## 2026-11-28 선정 기록
+
+목적: MES 장애 전후 alert·change·metric·log·ticket·trace 증거를 시간창과 자산 의존 경로로 묶어 사람 검토용 packet을 만듭니다.
+문맥: 반도체 제조 Incident Search AI·ServiceDesk·ARIA 연동 수요를 겨냥하되 anomaly 탐지·event replay·root-cause 확정·자동 조치는 재구현하지 않습니다.
+
+- 전주 검증 우선 확인: `ndndndn1/agent-trace-regression-gate`는 원격 조회 404이며 11/21 이후 원격 commit·검증 산출물이 없습니다. 첫날 local 코드·30개 작성자 테스트·CLI/live REST/MCP는 보존하지만 독립 corpus·MLflow/OTel adapter·holdout·실측·제안서·private 전달이 없어 **blocked_week_plan_incomplete**입니다.
+- 자산 점검: 계정 전체 code search에서 anomaly 탐지, retry/DLQ/replay, 일반 lineage, contract gate, generic agent-trace gate는 확인했습니다. digest로 묶인 이기종 incident evidence를 bounded time window와 directed dependency path로 조합하면서 원인 확정을 거부하는 구현은 발견되지 않았습니다. 이번 모듈은 기존 출력만 소비하며 탐지·재생·인과 추론·조치를 수행하지 않습니다.
+- 선정 점수(판단 추정): MES incident evidence packet 5×.90×5÷14h=**1.607**; MES Agent tool-contract adapter 5×.80×4÷14=1.143; P&T MES ETL parity auditor 4×.85×4÷14=.971. 취업확률·시장통계가 아닙니다. 후자는 기존 agent trace/contract·ETL 자산과 더 겹칩니다.
+- 결정형 핵심: canonical JSON/hash, event ID 충돌·payload digest·timezone·bounded input, incident time window, directed dependency reachability, 필수 source coverage, stable evidence/finding order, ready/insufficient/invalid 판정, `root_cause=not_determined` 고정.
+- 비결정형 판단: 입력 topology·timestamp의 현장 대표성, 상관 event의 causal relevance, severity·root cause·remediation·운영 승인, 검토 문장과 제안서 문맥. packet은 자동 조치를 승인하지 않습니다.
+- 작성 문맥·목적: 장애 초도 대응에서 서로 다른 관제·배포·DB·ticket 증거를 한 packet으로 정리해 1선 분석 시간을 줄이는 취업 제안용 모듈입니다. 원인·대응은 담당자가 판단합니다.
+- 계약: CLI `mes-incident-evidence --input FILE_OR_DASH`; REST `POST /v1/packets`, `GET /healthz`; MCP 2026-07-28 stateless stdio `build_mes_incident_evidence` 및 `server/discover`. 세 인터페이스는 같은 decision/hash/evidence/finding envelope를 반환합니다.
+- 첫날 검증: 작성자 테스트 33개, 실제 CLI `ready_for_human_review`/3 evidence/0 findings, live REST health·packet과 CLI structured parity, MCP discovery·tools/call structuredContent parity를 통과했습니다. 예제는 합성이며 독립 정확도·현장 효과 증거가 아닙니다.
+- 7일 각2h: 11/28 schema/core/interfaces → 11/29 결과를 보기 전 독립 30 incident bundle 명세 → 11/30 승인된 alert/change/metric/ticket JSONL·CSV adapter → 12/01 topology/time-window/clock-skew policy·hash freeze → 12/02 20-case holdout 1회 → 12/03 named MCP client·timeout/retry/large-packet → 12/04 5쌍 manual 대비·제안서.
+- 승격 기준: critical integrity/gap recall 100%, reviewed normal false block ≤5%, event ID 충돌·digest·timezone·필수 source 누락·transport timeout fail-open 0, hash/order 재현, CLI/REST/MCP parity, confirmed root-cause 또는 자동조치 주장 0, manual 대비 중앙 검토시간 30% 이상 단축 및 정확성 유지.
+- 신규 최우선 채용: [SK AX R262570](https://www.skcareers.com/Recruit/Detail/R262570)은 11/25 게시·2027/01/28 23:59 마감 정규직으로 반도체 후공정 P&T MES·ETL·AI Agent를 담당하며 MCP·Vector/Graph DB를 우대하고 관련 경력 3년 이상을 요구합니다. 명시적 영어 점수는 없으나 글로벌 협업·출장 가능 요건이 있어 TOEIC Speaking 기준은 **확인 필요**입니다.
+- 신규 직접 연계: [R262584](https://www.skcareers.com/Recruit/Detail/R262584)은 같은 기간 정규직 제조 모니터링 AX PM/PL로 Incident Search AI·ServiceDesk Assistant·ARIA 통합과 초도 대응 단축을 명시하며 경력 6년 이상입니다. 외국어는 우대이고 점수는 **확인 필요**입니다. [R262586](https://www.skcareers.com/Recruit/Detail/R262586)은 MES/장비/품질/자동화 운영 정규직·경력 3년 이상이며 외국어 우대, 점수 **확인 필요**입니다.
+- 제외: [R262571](https://www.skcareers.com/Recruit/Detail/R262571) 제조 P&T AI/MES와 [R262569](https://www.skcareers.com/Recruit/Detail/R262569) 제조 AI 장비/품질 자동화는 계약직이라 제외합니다. 삼성전자 DX Data 플랫폼 및 분석은 11/23 마감되어 신규 지원 후보에서 제외합니다.
+- 산업·커뮤니티 변화: [SEMI 2026년 11월 정책 브리프](https://www.semi.org/en/semi-global-policy-brief-nov-2026)는 한국 2027년 chips·AI 예산 21.3조원 제안과 SK하이닉스 Trinity Fab의 2027년 5월 개소 계획을 제시합니다. 장기 산업 방향 신호이며 이번 주 채용 증가나 프로젝트 효과 증거는 아닙니다. 이번 주 관련 MCP/Kubernetes 안정 규격 변경은 확인하지 못해 MCP 2026-07-28 계약을 유지합니다.
+- 전달 상태: local commit `faf94cc`, 12개 파일과 재현 문서를 준비했습니다. GitHub /new는 로그인 화면이고 연결 API에는 repository create가 없어 새 private repository를 생성·push하지 못했습니다. 따라서 **delivery blocked**이며 생성 완료로 표시하지 않습니다. 외부인에게 메시지를 보내지 않았습니다.

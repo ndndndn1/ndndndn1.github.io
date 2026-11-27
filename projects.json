@@ -1,32 +1,42 @@
 {
   "schema_version": "1.1",
-  "updated_at": "2026-11-21",
+  "updated_at": "2026-11-28",
   "owner": "ndndndn1",
   "disclosure": "Public index contains reviewed public integration assets and only the currently selected private weekly project; prior private-project inventory is omitted.",
   "active_project": {
-    "name": "agent-trace-regression-gate",
+    "name": "mes-incident-evidence-packet",
     "repository_url": null,
     "private": true,
     "status": "blocked_repository_creation",
     "description": [
-      "기록된 AI agent baseline/candidate trace의 provenance·schema·outcome·budget 회귀를 결정형으로 차단합니다.",
-      "30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
+      "MES 장애 전후 이기종 증거를 시간창·자산 의존 경로로 묶되 root cause를 확정하지 않는 사람 검토용 packet입니다.",
+      "33개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
     ],
-    "sprint_start": "2026-11-21",
-    "sprint_end": "2026-11-27"
+    "sprint_start": "2026-11-28",
+    "sprint_end": "2026-12-04"
   },
   "projects": [
     {
-      "name": "agent-trace-regression-gate",
+      "name": "mes-incident-evidence-packet",
       "repository_url": null,
       "private": true,
       "status": "blocked_repository_creation",
       "description": [
-        "기록된 AI agent baseline/candidate trace의 provenance·schema·outcome·budget 회귀를 결정형으로 차단합니다.",
-        "30개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
+        "MES 장애 전후 이기종 증거를 시간창·자산 의존 경로로 묶되 root cause를 확정하지 않는 사람 검토용 packet입니다.",
+        "33개 작성자 테스트와 CLI·live REST·MCP parity 통과; private 저장소 생성·push는 인증/도구 부재로 막혔습니다."
       ],
-      "sprint_start": "2026-11-21",
-      "sprint_end": "2026-11-27"
+      "sprint_start": "2026-11-28",
+      "sprint_end": "2026-12-04"
+    },
+    {
+      "name": "flow-lineage",
+      "repository_url": "https://github.com/ndndndn1/flow-lineage",
+      "private": false,
+      "status": "existing_dependency_graph_integration_candidate",
+      "description": [
+        "기존 OpenLineage 저장·영향 그래프 자산.",
+        "이번 packet의 topology 입력 후보이며 incident 판단·원인 추론은 담당하지 않습니다."
+      ]
     },
     {
       "name": "aitop10026",
